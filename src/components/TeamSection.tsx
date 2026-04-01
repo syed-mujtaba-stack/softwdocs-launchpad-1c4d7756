@@ -24,7 +24,7 @@ const team = [
       "Docker", "Kubernetes", "WordPress", "Elementor", "PostgreSQL", "MongoDB",
       "Tailwind CSS", "Vercel", "Git/GitHub", "Figma", "Sanity CMS",
     ],
-    gradient: "from-teal-400 to-emerald-500",
+    gradient: "from-gray-300 to-gray-500",
     initial: "NF",
   },
   {
