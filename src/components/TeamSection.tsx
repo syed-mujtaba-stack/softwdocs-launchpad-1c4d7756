@@ -12,7 +12,7 @@ const team = [
       "Docker", "Kubernetes", "OpenAI Agents SDK", "PostgreSQL", "MongoDB", "Vector DB",
       "Tailwind CSS", "Vercel", "Git/GitHub", "Figma", "Sanity CMS", "cPanel",
     ],
-    gradient: "from-cyan-400 to-blue-500",
+    gradient: "from-white to-gray-400",
     initial: "SM",
   },
   {
