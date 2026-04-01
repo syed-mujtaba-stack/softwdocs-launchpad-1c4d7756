@@ -35,7 +35,7 @@ const team = [
       "HTML", "CSS", "JavaScript", "TypeScript", "PHP", "XAMPP", "MySQL",
       "Laravel", "WordPress", "Angular", "C#", ".NET",
     ],
-    gradient: "from-blue-400 to-indigo-500",
+    gradient: "from-gray-400 to-gray-600",
     initial: "SD",
   },
 ];
