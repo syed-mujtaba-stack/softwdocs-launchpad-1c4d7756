@@ -6,17 +6,16 @@ const technologies = [
 
 const TechMarquee = () => {
   return (
-    <div className="py-12 border-y border-border overflow-hidden">
+    <div className="py-8 overflow-hidden relative">
+      <div className="section-divider mb-8" />
       <div className="flex animate-marquee whitespace-nowrap">
         {[...technologies, ...technologies].map((tech, i) => (
-          <span
-            key={i}
-            className="mx-8 text-lg font-display font-semibold text-muted-foreground/40 hover:text-primary transition-colors duration-300 cursor-default"
-          >
+          <span key={i} className="mx-10 text-sm font-heading font-medium tracking-[0.15em] uppercase text-muted-foreground/30 hover:text-foreground transition-colors duration-500 cursor-default">
             {tech}
           </span>
         ))}
       </div>
+      <div className="section-divider mt-8" />
     </div>
   );
 };

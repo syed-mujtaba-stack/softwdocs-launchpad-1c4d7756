@@ -1,109 +1,142 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Sparkles } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowUpRight, Minus } from "lucide-react";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden noise-bg"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src={heroBg}
-          alt=""
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-      </div>
+      {/* Grid pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-50" />
+      
+      {/* Ambient glows */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-primary/[0.02] blur-[200px]" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[180px]" />
+      
+      {/* Animated line */}
+      <motion.div
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        transition={{ duration: 1.5, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+        className="absolute left-12 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent origin-top hidden lg:block"
+      />
 
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-primary/5 blur-[100px] animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-primary/10 blur-[120px] animate-float" style={{ animationDelay: "3s" }} />
-
-      <div className="container mx-auto px-6 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8"
-        >
-          <Sparkles className="w-4 h-4 text-primary" />
-          <span className="text-sm text-muted-foreground">
-            Transforming Ideas Into Digital Reality
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
-        >
-          We Build{" "}
-          <span className="text-gradient">Digital</span>
-          <br />
-          Solutions That{" "}
-          <span className="text-gradient">Matter</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
-        >
-          Full-stack development, AI solutions, and cutting-edge web applications.
-          We turn your vision into powerful digital experiences.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <a
-            href="#contact"
-            className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-2 hover:opacity-90 transition-opacity glow-shadow"
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-5xl">
+          {/* Tag */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex items-center gap-3 mb-10"
           >
-            Start Your Project
-            <ArrowRight className="w-5 h-5" />
-          </a>
-          <a
-            href="#services"
-            className="border border-border px-8 py-4 rounded-xl font-semibold text-lg text-foreground hover:bg-secondary transition-colors flex items-center gap-2"
-          >
-            <Code2 className="w-5 h-5" />
-            Our Services
-          </a>
-        </motion.div>
+            <Minus className="w-6 h-6 text-muted-foreground" />
+            <span className="text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
+              Software Development Studio
+            </span>
+          </motion.div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
-        >
-          {[
-            { value: "3+", label: "Expert Developers" },
-            { value: "20+", label: "Technologies" },
-            { value: "100%", label: "Client Satisfaction" },
-            { value: "24/7", label: "Support" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-gradient font-display">
-                {stat.value}
-              </div>
-              <div className="text-sm text-muted-foreground mt-1">
-                {stat.label}
-              </div>
+          {/* Headline */}
+          <div className="overflow-hidden">
+            <motion.h1
+              initial={{ y: 120 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
+              className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight"
+            >
+              We Craft
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden">
+            <motion.h1
+              initial={{ y: 120 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
+              className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight text-gradient-shine"
+            >
+              Digital
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden">
+            <motion.h1
+              initial={{ y: 120 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: 0.7, ease: [0.23, 1, 0.32, 1] }}
+              className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight"
+            >
+              Experiences<span className="text-muted-foreground">.</span>
+            </motion.h1>
+          </div>
+
+          {/* Subtext + CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-10"
+          >
+            <p className="text-muted-foreground text-lg md:text-xl max-w-lg leading-relaxed font-light">
+              Full-stack development, AI solutions & enterprise applications — 
+              built with precision and passion by a team of experts.
+            </p>
+
+            <div className="flex items-center gap-5 flex-shrink-0">
+              <a
+                href="#contact"
+                className="premium-btn px-8 py-4 rounded-full font-semibold text-sm tracking-wider uppercase flex items-center gap-3 group"
+              >
+                Start a Project
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+              <a
+                href="#services"
+                className="premium-btn-outline px-8 py-4 rounded-full font-semibold text-sm tracking-wider uppercase"
+              >
+                Explore
+              </a>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+
+          {/* Stats row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="mt-24 flex flex-wrap gap-16 md:gap-24"
+          >
+            {[
+              { value: "03", label: "Expert\nDevelopers" },
+              { value: "20+", label: "Technologies\nMastered" },
+              { value: "∞", label: "Commitment\nTo Quality" },
+            ].map((stat) => (
+              <div key={stat.label} className="group">
+                <div className="text-5xl md:text-6xl font-display font-extrabold tracking-tighter text-foreground">
+                  {stat.value}
+                </div>
+                <div className="text-xs tracking-[0.2em] uppercase text-muted-foreground mt-2 whitespace-pre-line leading-relaxed">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          className="w-px h-8 bg-gradient-to-b from-muted-foreground to-transparent"
+        />
+      </motion.div>
     </section>
   );
 };
