@@ -55,7 +55,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="premium-btn px-6 py-2.5 rounded-full text-[13px] font-semibold tracking-wider uppercase"
+              className="premium-btn px-5 py-2 rounded-full text-[11px] font-semibold tracking-wider uppercase"
             >
               Let's Talk
             </motion.a>
