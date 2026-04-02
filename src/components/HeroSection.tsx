@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Minus } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
