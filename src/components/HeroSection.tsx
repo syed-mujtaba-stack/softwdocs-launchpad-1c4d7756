@@ -1,11 +1,10 @@
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden noise-bg"
+      className="relative min-h-screen flex items-end pb-24 overflow-hidden noise-bg"
     >
       {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-50" />
@@ -14,58 +13,24 @@ const HeroSection = () => {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-primary/[0.02] blur-[200px]" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[180px]" />
       
-      {/* Animated line */}
-      <motion.div
-        initial={{ scaleY: 0 }}
-        animate={{ scaleY: 1 }}
-        transition={{ duration: 1.5, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
-        className="absolute left-12 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent origin-top hidden lg:block"
-      />
+      {/* Static vertical line */}
+      <div className="absolute left-12 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent hidden lg:block" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-5xl">
-          {/* Spacer for navbar */}
-          <div className="mb-6" />
-
+        <div className="max-w-5xl pt-32">
           {/* Headline */}
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: 120 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.23, 1, 0.32, 1] }}
-              className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight"
-            >
-              We Craft
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: 120 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 0.6, ease: [0.23, 1, 0.32, 1] }}
-              className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight text-gradient-shine"
-            >
-              Digital
-            </motion.h1>
-          </div>
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: 120 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, delay: 0.7, ease: [0.23, 1, 0.32, 1] }}
-              className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight"
-            >
-              Experiences<span className="text-muted-foreground">.</span>
-            </motion.h1>
-          </div>
+          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight">
+            We Craft
+          </h1>
+          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight text-gradient-shine">
+            Digital
+          </h1>
+          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight">
+            Experiences<span className="text-muted-foreground">.</span>
+          </h1>
 
           {/* Subtext + CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-10"
-          >
+          <div className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-10">
             <p className="text-muted-foreground text-lg md:text-xl max-w-lg leading-relaxed font-light">
               Full-stack development, AI solutions & enterprise applications — 
               built with precision and passion by a team of experts.
@@ -86,15 +51,10 @@ const HeroSection = () => {
                 Explore
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
-            className="mt-24 flex flex-wrap gap-16 md:gap-24"
-          >
+          <div className="mt-24 flex flex-wrap gap-16 md:gap-24">
             {[
               { value: "03", label: "Expert\nDevelopers" },
               { value: "20+", label: "Technologies\nMastered" },
@@ -109,24 +69,15 @@ const HeroSection = () => {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="text-[10px] tracking-[0.3em] uppercase text-muted-foreground">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-          className="w-px h-8 bg-gradient-to-b from-muted-foreground to-transparent"
-        />
-      </motion.div>
+        <div className="w-px h-8 bg-gradient-to-b from-muted-foreground to-transparent animate-pulse" />
+      </div>
     </section>
   );
 };
