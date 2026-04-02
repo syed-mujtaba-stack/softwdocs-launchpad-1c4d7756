@@ -31,9 +31,9 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           <a href="#home" className="flex items-center gap-3 group">
-            <img src={logo} alt="SoftwDocs" className="h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
+            <img src={logo} alt="SoftwDocs" className="h-6 w-auto transition-transform duration-300 group-hover:scale-105" />
           </a>
 
           {/* Desktop */}
@@ -55,7 +55,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="premium-btn px-6 py-2.5 rounded-full text-[13px] font-semibold tracking-wider uppercase"
+              className="premium-btn px-5 py-2 rounded-full text-[11px] font-semibold tracking-wider uppercase"
             >
               Let's Talk
             </motion.a>
