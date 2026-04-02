@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Minus } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -24,18 +24,8 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-5xl">
-          {/* Tag */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex items-center gap-3 mb-10"
-          >
-            <Minus className="w-6 h-6 text-muted-foreground" />
-            <span className="text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
-              Software Development Studio
-            </span>
-          </motion.div>
+          {/* Spacer for navbar */}
+          <div className="mb-6" />
 
           {/* Headline */}
           <div className="overflow-hidden">
