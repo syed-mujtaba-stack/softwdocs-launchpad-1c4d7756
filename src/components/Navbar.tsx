@@ -31,7 +31,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           <a href="#home" className="flex items-center gap-3 group">
             <img src={logo} alt="SoftwDocs" className="h-9 w-auto transition-transform duration-300 group-hover:scale-105" />
           </a>
