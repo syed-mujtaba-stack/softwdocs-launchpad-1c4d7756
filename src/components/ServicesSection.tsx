@@ -18,38 +18,38 @@ const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="py-32 relative" ref={ref}>
+    <section id="services" className="py-24 sm:py-32 relative" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-16 sm:mb-20"
         >
           <div className="flex items-center gap-3 mb-6">
             <Minus className="w-6 h-6 text-muted-foreground" />
-            <span className="text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
+            <span className="text-[11px] sm:text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
               Services
             </span>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] sm:leading-[1.05] tracking-tight">
               What We <span className="text-gradient-shine">Build</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-md font-light leading-relaxed">
+            <p className="text-muted-foreground text-base sm:text-lg max-w-md font-light leading-relaxed">
               From concept to deployment, we cover every dimension of software development.
             </p>
           </div>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border/30">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-px bg-transparent sm:bg-border/30">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.08 }}
-              className="premium-card p-8 group cursor-pointer relative overflow-hidden"
+              className="premium-card p-6 sm:p-8 group cursor-pointer relative overflow-hidden"
             >
               {/* Hover line */}
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-foreground/0 to-transparent group-hover:via-foreground/30 transition-all duration-700" />

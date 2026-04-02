@@ -16,38 +16,38 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative" ref={ref}>
+    <section id="contact" className="py-24 sm:py-32 relative" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-20"
+          className="mb-16 sm:mb-20"
         >
           <div className="flex items-center gap-3 mb-6">
             <Minus className="w-6 h-6 text-muted-foreground" />
-            <span className="text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
+            <span className="text-[11px] sm:text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
               Contact
             </span>
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-extrabold leading-[1.1] sm:leading-[1.05] tracking-tight">
             Let's Work <span className="text-gradient-shine">Together</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-px bg-border/30 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border/30 rounded-2xl overflow-hidden">
           {/* Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="premium-card p-10 lg:p-14 flex flex-col justify-between"
+            className="premium-card p-8 sm:p-10 lg:p-14 flex flex-col justify-between"
           >
             <div>
-              <h3 className="font-display text-2xl font-bold mb-4 tracking-tight">
+              <h3 className="font-display text-xl sm:text-2xl font-bold mb-4 tracking-tight">
                 Have a project in mind?
               </h3>
-              <p className="text-muted-foreground leading-relaxed font-light mb-12">
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-light mb-12">
                 Whether you need a full-stack web application, AI-powered solution, 
                 or a stunning WordPress site — our team delivers excellence.
               </p>
@@ -60,12 +60,12 @@ const ContactSection = () => {
                 { icon: Clock, label: "Response", value: "Within 24 Hours" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-5 group">
-                  <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:border-foreground/20 transition-all duration-300">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-border flex items-center justify-center group-hover:border-foreground/20 transition-all duration-300">
                     <item.icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
                   </div>
                   <div>
-                    <p className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground">{item.label}</p>
-                    <p className="text-sm font-medium">{item.value}</p>
+                    <p className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-muted-foreground">{item.label}</p>
+                    <p className="text-xs sm:text-sm font-medium">{item.value}</p>
                   </div>
                 </div>
               ))}
@@ -78,14 +78,14 @@ const ContactSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
             onSubmit={handleSubmit}
-            className="premium-card p-10 lg:p-14 space-y-8"
+            className="premium-card p-8 sm:p-10 lg:p-14 space-y-8"
           >
             {[
               { id: "name", label: "Your Name", type: "text", placeholder: "John Doe", key: "name" as const },
               { id: "email", label: "Email Address", type: "email", placeholder: "john@example.com", key: "email" as const },
             ].map((field) => (
               <div key={field.id}>
-                <label className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-3 block">{field.label}</label>
+                <label className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-3 block">{field.label}</label>
                 <input
                   type={field.type}
                   required
@@ -97,7 +97,7 @@ const ContactSection = () => {
               </div>
             ))}
             <div>
-              <label className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-3 block">Message</label>
+              <label className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-muted-foreground mb-3 block">Message</label>
               <textarea
                 required
                 rows={4}
@@ -109,10 +109,10 @@ const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="premium-btn w-full py-4 rounded-full font-semibold text-sm tracking-wider uppercase flex items-center justify-center gap-3 group mt-4"
+              className="premium-btn w-full py-4 rounded-full font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-3 group mt-4 px-4 overflow-hidden"
             >
-              Send Message
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="truncate">Send Message</span>
+              <ArrowUpRight className="flex-shrink-0 w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
           </motion.form>
         </div>

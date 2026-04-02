@@ -16,9 +16,9 @@ const WhyUsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-32 relative" ref={ref}>
+    <section className="py-20 sm:py-32 relative" ref={ref}>
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -26,15 +26,15 @@ const WhyUsSection = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <Minus className="w-6 h-6 text-muted-foreground" />
-              <span className="text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
+              <span className="text-[11px] sm:text-[13px] font-medium tracking-[0.3em] uppercase text-muted-foreground">
                 Why SoftwDocs
               </span>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight mb-6 text-foreground">
               Built Different.<br />
               <span className="text-gradient-shine">Delivered Better.</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed font-light">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed font-light">
               We're not just developers — we're partners in your success. Every project gets our 
               full attention, creative energy, and technical expertise.
             </p>
@@ -44,7 +44,7 @@ const WhyUsSection = () => {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-5"
+            className="space-y-4 sm:space-y-5"
           >
             {reasons.map((reason, index) => (
               <motion.div
@@ -55,7 +55,7 @@ const WhyUsSection = () => {
                 className="flex items-start gap-4 group"
               >
                 <CheckCircle2 className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors duration-300 mt-0.5 flex-shrink-0" />
-                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                <span className="text-[13px] sm:text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                   {reason}
                 </span>
               </motion.div>

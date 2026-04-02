@@ -17,36 +17,36 @@ const HeroSection = () => {
       <div className="absolute left-12 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent hidden lg:block" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-5xl pt-32">
+        <div className="max-w-5xl pt-24 sm:pt-32">
           {/* Headline */}
-          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight">
+          <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight">
             We Craft
           </h1>
-          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight text-gradient-shine">
+          <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight text-gradient-shine">
             Digital
           </h1>
-          <h1 className="font-display text-[clamp(3rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-tight">
+          <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight">
             Experiences<span className="text-muted-foreground">.</span>
           </h1>
 
           {/* Subtext + CTA */}
-          <div className="mt-12 flex flex-col md:flex-row md:items-end justify-between gap-10">
-            <p className="text-muted-foreground text-lg md:text-xl max-w-lg leading-relaxed font-light">
+          <div className="mt-10 sm:mt-12 flex flex-col md:flex-row md:items-end justify-between gap-10">
+            <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-lg leading-relaxed font-light">
               Full-stack development, AI solutions & enterprise applications — 
               built with precision and passion by a team of experts.
             </p>
 
-            <div className="flex items-center gap-5 flex-shrink-0">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 flex-shrink-0">
               <a
                 href="#contact"
-                className="premium-btn px-8 py-4 rounded-full font-semibold text-sm tracking-wider uppercase flex items-center gap-3 group"
+                className="premium-btn px-8 py-4 rounded-full font-semibold text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-3 group"
               >
                 Start a Project
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a
                 href="#services"
-                className="premium-btn-outline px-8 py-4 rounded-full font-semibold text-sm tracking-wider uppercase"
+                className="premium-btn-outline px-8 py-4 rounded-full font-semibold text-xs sm:text-sm tracking-wider uppercase text-center"
               >
                 Explore
               </a>
@@ -54,17 +54,17 @@ const HeroSection = () => {
           </div>
 
           {/* Stats row */}
-          <div className="mt-24 flex flex-wrap gap-16 md:gap-24">
+          <div className="mt-20 sm:mt-24 grid grid-cols-2 lg:flex flex-wrap gap-10 md:gap-24">
             {[
               { value: "03", label: "Expert\nDevelopers" },
               { value: "20+", label: "Technologies\nMastered" },
               { value: "∞", label: "Commitment\nTo Quality" },
-            ].map((stat) => (
-              <div key={stat.label} className="group">
-                <div className="text-5xl md:text-6xl font-display font-extrabold tracking-tighter text-foreground">
+            ].map((stat, i) => (
+              <div key={stat.label} className={`group ${i === 2 ? 'col-span-2 sm:col-span-1' : ''}`}>
+                <div className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tighter text-foreground">
                   {stat.value}
                 </div>
-                <div className="text-xs tracking-[0.2em] uppercase text-muted-foreground mt-2 whitespace-pre-line leading-relaxed">
+                <div className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-muted-foreground mt-2 whitespace-pre-line leading-relaxed">
                   {stat.label}
                 </div>
               </div>
