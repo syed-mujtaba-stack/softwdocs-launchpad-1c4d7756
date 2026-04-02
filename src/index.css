@@ -54,6 +54,7 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: none !important;
   }
   body {
     @apply bg-background text-foreground antialiased overflow-x-hidden max-w-[100vw];
