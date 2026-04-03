@@ -1,38 +1,70 @@
+import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const HeroSection = () => {
+  const containerRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax transforms
+  const headlineY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const subtextY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const glowTopY = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const glowBottomY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const gridOpacity = useTransform(scrollYProgress, [0, 0.6], [0.5, 0]);
+  const lineY = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
   return (
     <section
       id="home"
+      ref={containerRef}
       className="relative min-h-screen flex items-end pb-24 overflow-hidden noise-bg"
     >
-      {/* Grid pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-50" />
-      
-      {/* Ambient glows */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-primary/[0.02] blur-[200px]" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[180px]" />
-      
-      {/* Static vertical line */}
-      <div className="absolute left-12 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent hidden lg:block" />
+      {/* Grid pattern with parallax fade */}
+      <motion.div className="absolute inset-0 grid-pattern" style={{ opacity: gridOpacity }} />
+
+      {/* Ambient glows with parallax */}
+      <motion.div
+        style={{ y: glowTopY }}
+        className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-primary/[0.02] blur-[200px]"
+      />
+      <motion.div
+        style={{ y: glowBottomY }}
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[180px]"
+      />
+
+      {/* Vertical line with parallax */}
+      <motion.div
+        style={{ y: lineY }}
+        className="absolute left-12 top-0 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent hidden lg:block"
+      />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-5xl pt-24 sm:pt-32">
-          {/* Headline */}
-          <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight">
-            We Craft
-          </h1>
-          <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight text-gradient-shine">
-            Digital
-          </h1>
-          <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight">
-            Experiences<span className="text-muted-foreground">.</span>
-          </h1>
+          {/* Headline with parallax */}
+          <motion.div style={{ y: headlineY }}>
+            <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight">
+              We Craft
+            </h1>
+            <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight text-gradient-shine">
+              Digital
+            </h1>
+            <h1 className="font-display text-[clamp(1.5rem,8vw,7rem)] sm:text-[clamp(3rem,10vw,7rem)] font-extrabold leading-[1.1] sm:leading-[0.9] tracking-tighter sm:tracking-tight">
+              Experiences<span className="text-muted-foreground">.</span>
+            </h1>
+          </motion.div>
 
-          {/* Subtext + CTA */}
-          <div className="mt-10 sm:mt-12 flex flex-col md:flex-row md:items-end justify-between gap-10">
+          {/* Subtext + CTA with slower parallax */}
+          <motion.div
+            style={{ y: subtextY }}
+            className="mt-10 sm:mt-12 flex flex-col md:flex-row md:items-end justify-between gap-10"
+          >
             <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-lg leading-relaxed font-light">
-              Full-stack development, AI solutions & enterprise applications — 
+              Full-stack development, AI solutions & enterprise applications —{" "}
               built with precision and passion by a team of experts.
             </p>
 
@@ -51,16 +83,19 @@ const HeroSection = () => {
                 Explore
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Stats row */}
-          <div className="mt-20 sm:mt-24 grid grid-cols-2 lg:flex flex-wrap gap-10 md:gap-24">
+          <motion.div
+            style={{ y: subtextY }}
+            className="mt-20 sm:mt-24 grid grid-cols-2 lg:flex flex-wrap gap-10 md:gap-24"
+          >
             {[
               { value: "03", label: "Expert\nDevelopers" },
               { value: "20+", label: "Technologies\nMastered" },
               { value: "∞", label: "Commitment\nTo Quality" },
             ].map((stat, i) => (
-              <div key={stat.label} className={`group ${i === 2 ? 'col-span-2 sm:col-span-1' : ''}`}>
+              <div key={stat.label} className={`group ${i === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
                 <div className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tighter text-foreground">
                   {stat.value}
                 </div>
@@ -69,7 +104,7 @@ const HeroSection = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 
