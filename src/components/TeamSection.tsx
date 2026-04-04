@@ -26,14 +26,14 @@ const team = [
     initial: "NF",
   },
   {
-    name: "Sister #3",
+    name: "Syeda Quratulain zaidi",
     role: "Co-Founder & Developer",
     title: "Backend & Enterprise Developer",
     skills: [
       "HTML", "CSS", "JavaScript", "TypeScript", "PHP", "XAMPP", "MySQL",
       "Laravel", "WordPress", "Angular", "C#", ".NET",
     ],
-    initial: "SD",
+    initial: "QZ",
   },
 ];
 
