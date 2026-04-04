@@ -9,6 +9,7 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import LoadingScreen from "./components/LoadingScreen";
 import CustomCursor from "./components/CustomCursor";
+import AIChatbot from "./components/AIChatbot";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Services from "./pages/Services.tsx";
@@ -36,6 +37,7 @@ const App = () => {
         <CustomCursor />
         <Toaster />
         <Sonner />
+        <AIChatbot />
         <AnimatePresence mode="wait">
           {loading ? (
             <LoadingScreen key="loading" />
