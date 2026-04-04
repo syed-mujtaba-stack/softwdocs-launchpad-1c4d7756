@@ -44,10 +44,9 @@ async def chat_endpoint(request: ChatRequest):
             # or manage the context manually if needed.
         )
         
-        # Extract the response and the current agent's name
-        # The result object contains the final response from the agent system.
-        response_data = result.data
-        agent_name = result.current_agent.name if hasattr(result, 'current_agent') else orchestrator_agent.name
+        # Extract the response and the current agent's name from the SDK result
+        response_data = result.final_output
+        agent_name = result.last_agent.name if result.last_agent else orchestrator_agent.name
         
         # Add the assistant response to the history
         session_history[request.session_id].append({
