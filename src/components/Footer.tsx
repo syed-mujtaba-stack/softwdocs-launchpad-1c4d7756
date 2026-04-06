@@ -109,9 +109,11 @@ const Footer = () => {
           <p className="text-[11px] tracking-[0.15em] uppercase text-muted-foreground/50 order-2 sm:order-1">
             © {currentYear} SoftwDocs. All rights reserved.
           </p>
-          <div className="flex items-center gap-8 order-1 sm:order-2">
+          <div className="flex items-center gap-6 sm:gap-8 order-1 sm:order-2 flex-wrap justify-center">
             <Link to="/privacy" className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 hover:text-foreground/70 transition-colors">Privacy</Link>
             <Link to="/terms" className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 hover:text-foreground/70 transition-colors">Terms</Link>
+            <Link to="/cookies" className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 hover:text-foreground/70 transition-colors">Cookies</Link>
+            <Link to="/refund" className="text-[10px] tracking-[0.15em] uppercase text-muted-foreground/50 hover:text-foreground/70 transition-colors">Refund</Link>
           </div>
         </div>
       </div>
