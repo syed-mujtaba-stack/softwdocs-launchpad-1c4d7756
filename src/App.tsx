@@ -16,6 +16,10 @@ import Services from "./pages/Services.tsx";
 import Process from "./pages/Process.tsx";
 import Contact from "./pages/Contact.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
+import Terms from "./pages/Terms.tsx";
+import Privacy from "./pages/Privacy.tsx";
+import Cookies from "./pages/Cookies.tsx";
+import Refund from "./pages/Refund.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -52,6 +56,10 @@ const App = () => {
                   <Route path="/process" element={<Process />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/portfolio" element={<Portfolio />} />
+                  <Route path="/terms" element={<Terms />} />
+                  <Route path="/privacy" element={<Privacy />} />
+                  <Route path="/cookies" element={<Cookies />} />
+                  <Route path="/refund" element={<Refund />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Layout>
